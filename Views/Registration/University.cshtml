@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model AssessmentPlatform.Model.DTO.UniversityInput
+@{
+}
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="form-check-label">
+                <input class="form-check-input" id="Create" name="group" type="radio" value="Create" onclick="handsradioUniverstiy(1)" />
+                Crete
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="form-check-label">
+                <input class="form-check-input" id="Update" name="group" type="radio" value="Update" onclick="handsradioUniverstiy(2)" />
+                Edit/Update
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label"> @ViewBag.Message </label>
+</div>
+
+<div class="row d-none" id="idcreate">
+    <div class="col-md-4">
+        <form asp-action="University" asp-controller="Registration">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UniversityName" class="control-label"></label>
+                <input asp-for="UniversityName" class="form-control" placeholder="Name"  />
+                <span asp-validation-for="UniversityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label"></label>
+                <input asp-for="IsActive" type="checkbox"  placeholder="Password"  />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row d-none" id="idupdate">
+    <div class="col-md-4">
+        <form asp-action="University" asp-controller="Registration">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UniversityName" class="control-label"></label>
+                <select asp-for="UniversityID" asp-items="ViewBag.University"></select>
+                <span asp-validation-for="UniversityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label"></label>
+                <input asp-for="IsActive" type="checkbox" placeholder="Password" />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+           
+        </form>
+    </div>
+</div>
+@* <script>
+        $('#Create').click(function() {
+            debugger;
+             $('#Create').removeclass('hidden');
+      $('#Update').addclass('hidden');
+    });
+
+      $('#Update').click(function() {
+          debugger;
+             $('#Update').removeclass('hidden');
+      $('#Create').addclass('hidden');
+    });
+
+</script> *@

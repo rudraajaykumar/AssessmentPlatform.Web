@@ -1,0 +1,111 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model AssessmentPlatform.Model.DTO.CollegeInput
+@{
+}
+<h1>Creat or Edit College</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="College" asp-controller="Registration">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CollegeName" class="control-label"></label>
+                <input asp-for="CollegeName" class="form-control" placeholder="Name" />
+                <span asp-validation-for="CollegeName" class="text-danger"></span>
+            </div>
+           @*  <div class="form-group">
+                <label asp-for="UniversityName" class="control-label"></label>
+                <input asp-for="UniversityName" class="form-control" placeholder="UniversityName" />
+                <span asp-validation-for="UniversityName" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="UniversityName" class="control-label"></label>
+                <select asp-for="UniversityName" asp-items="ViewBag.University"></select>
+                <span asp-validation-for="UniversityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Select Branch: <br />
+                @{
+                    var selectBranch = ViewBag.Branch;
+                    if (selectBranch != null)// && select.ToList().Count > 0)
+                    {
+                        foreach (var item in ViewBag.Branch)
+                        {
+                            <input type="checkbox" name="branch" value="@item.Value" @(Html.Raw(item.Selected ? "checked=\"checked\"" : "")) /> @item.Text  <br />
+                        }
+                    }
+                }
+            </div>
+
+            <div class="form-group">
+                Select Course: <br />
+                @{
+                    var selectCourse = ViewBag.Course;
+                    if (selectCourse != null)// && select.ToList().Count > 0)
+                    {
+                        foreach (var item in ViewBag.Course)
+                        {
+                            <input type="checkbox" name="course" value="@item.Value" @(Html.Raw(item.Selected ? "checked=\"checked\"" : "")) /> @item.Text  <br />
+                        }
+                    }
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="CharirmanName" class="control-label"></label>
+                <input asp-for="CharirmanName" class="form-control" placeholder="Name" />
+                <span asp-validation-for="CharirmanName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharirmanMobile" class="control-label"></label>
+                <input asp-for="CharirmanMobile" class="form-control" placeholder="UniversityName" />
+                <span asp-validation-for="CharirmanMobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharirmanEmailID" class="control-label"></label>
+                <input asp-for="CharirmanEmailID" class="form-control" placeholder="Name" />
+                <span asp-validation-for="CharirmanEmailID" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="PrincipalName" class="control-label"></label>
+                <input asp-for="PrincipalName" class="form-control" placeholder="Name" />
+                <span asp-validation-for="PrincipalName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrincipalMobile" class="control-label"></label>
+                <input asp-for="PrincipalMobile" class="form-control" placeholder="UniversityName" />
+                <span asp-validation-for="PrincipalMobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrincipalEmailID" class="control-label"></label>
+                <input asp-for="PrincipalEmailID" class="form-control" placeholder="Name" />
+                <span asp-validation-for="PrincipalEmailID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeanName" class="control-label"></label>
+                <input asp-for="DeanName" class="form-control" placeholder="UniversityName" />
+                <span asp-validation-for="DeanName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeanMobile" class="control-label"></label>
+                <input asp-for="DeanMobile" class="form-control" placeholder="Name" />
+                <span asp-validation-for="DeanMobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeanEamilID" class="control-label"></label>
+                <input asp-for="DeanEamilID" class="form-control" placeholder="UniversityName" />
+                <span asp-validation-for="DeanEamilID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollegeAddress" class="control-label"></label>
+                <input asp-for="CollegeAddress" class="form-control" placeholder="UniversityName" />
+                <span asp-validation-for="CollegeAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="College" class="btn btn-primary"  />
+            </div>
+        </form>
+    </div>
+</div>
